@@ -1,0 +1,107 @@
+{{#> layouts/application page_title=htmlWebpackPlugin.options.title }}
+{{#*inline "content-block"}}
+<h1>Calendar</h1>
+<div class="row">
+  <div class="col-12">
+    <!-- Add New Event MODAL -->
+    <div class="modal fade" id="event-modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fw-700">Update Or Delete Event</h4>
+            <a href="#" class="pos-top-right p-2 m-1 mr-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+          </div>
+          <form>
+            <div class="modal-body pt-3 pr-4 pl-4">
+            </div>
+            <div class="text-right pb-4 pr-4">
+              <button type="submit" class="btn btn-primary save-event">Save</button>
+              <button type="button" class="btn btn-danger delete-event" data-dismiss="modal">Delete</button>
+            </div>
+          </form>
+        </div> <!-- end modal-content-->
+      </div> <!-- end modal dialog-->
+    </div><!-- end modal-->
+    <!-- Add New External Event MODAL -->
+    <div class="modal fade" id="external-event-modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fw-700">Create New External Event</h4>
+            <a href="#" class="pos-top-right p-2 m-1 mr-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+          </div>
+          <form>
+            <div class="modal-body pt-3 pr-4 pl-4">
+              <div class='mb-3'>
+                <label for="event_title">Title</label>
+                <input class='form-control' id='external-event-title' type=text required />
+              </div>
+              <div class='mb-3'>
+                <label for="event_title">Color</label>
+                <select id="external-event-color" class="form-select">
+                  <option value="primary">Primary</option>
+                  <option value="info">Info</option>
+                  <option value="success">Success</option>
+                  <option value="warning">Warning</option>
+                  <option value="danger">Danger</option>
+                </select>
+              </div>
+            </div>
+            <div class="text-right pb-4 pr-4">
+              <button type="submit" class="btn btn-primary save-event">Save</button>
+            </div>
+          </form>
+        </div> <!-- end modal-content-->
+      </div> <!-- end modal dialog-->
+    </div>
+    <!-- end modal-->
+    <div class="card">
+      <div class="card-body">
+        <div class="row full-calendar">
+          <div class="col-lg-3">
+
+            <a href="#" class="btn btn-primary mb-4" data-toggle="modal" data-target="#external-event-modal">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg>
+              <span>New External Event</span></a>
+            <div id="calendar-external-events">
+              <p class="text-muted">Drag these onto the calendar:</p>
+              <div class="external-event btn btn-success d-block mb-3 text-white text-left cursor-move" data-color-class="bg-success" data-toggle="tooltip" data-html="true" title="<em>Lorem ipsum</em> <u>with</u> <b>HTML</b>">
+                Stand up
+              </div>
+              <div class="external-event btn btn-info d-block mb-3 text-white text-left" data-color-class="bg-info"  data-toggle="tooltip" data-html="true" title="<em>Lorem ipsum</em> <u>with</u> <b>HTML</b>">
+                <i class="fas fa-circle mr-2"></i>
+                Grooming
+              </div>
+              <div class="external-event btn btn-warning d-block mb-3 text-white text-left" data-color-class="bg-warning" data-description="Lorem ipsum dolor amet warning">
+                Release Project
+              </div>
+              <div class="external-event btn btn-danger d-block mb-3 text-white text-left" data-color-class="bg-danger" data-description="Lorem ipsum dolor amet danger">
+                Kick Start Project
+              </div>
+            </div>
+            <!-- checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="drop-remove">
+              <label class="form-check-label" for="drop-remove">
+                Remove after drop
+              </label>
+            </div>
+          </div> <!-- end col-->
+          <div class="col-lg-9">
+            <div id="demo-calendar">
+            </div><!-- end col-->
+          </div><!-- end row-->
+        </div> <!-- end full-calendar -->
+      </div><!-- end card-body -->
+    </div><!-- end card -->
+  </div>
+</div>
+{{/inline}}
+{{#*inline "javascript-block"}}
+<script type="text/javascript">
+</script>
+{{/inline}}
+{{/ layouts/application }}
